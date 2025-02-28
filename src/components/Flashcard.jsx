@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Card, CardContent, Typography } from "@mui/material";
 
@@ -6,7 +7,6 @@ export default function Flashcard({ word }) {
 
   return (
     <Card
-      className="w-64 h-40 text-center p-4 shadow-lg rounded-2xl cursor-pointer"
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
       style={{
@@ -18,19 +18,19 @@ export default function Flashcard({ word }) {
       <CardContent>
         {flipped ? (
           <>
-            <Typography variant="h5" component="div">
+            <Typography variant="h6" component="div">
               {word.fr}
             </Typography>
-            <Typography variant="body2" color="textSecondary" mt={1}>
+            <Typography variant="caption" color="textSecondary" mt={1}>
               {word.translatedSentence}
             </Typography>
           </>
         ) : (
           <>
-            <Typography variant="h5" component="div">
+            <Typography variant="h6" component="div">
               {word.de}
             </Typography>
-            <Typography variant="body2" color="textSecondary" mt={1}>
+            <Typography variant="caption" color="textSecondary" mt={1}>
               {word.sentence}
             </Typography>
           </>
