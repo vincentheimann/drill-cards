@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import * as React from "react";
+import { styled, useTheme } from "@mui/material/styles";
 import {
   Drawer,
   List,
@@ -9,30 +10,92 @@ import {
   Box,
   CssBaseline,
   Toolbar,
-  AppBar,
+  AppBar as MuiAppBar,
   Typography,
   Button,
   IconButton,
+  Divider,
 } from "@mui/material";
-import { Home, MenuBook, ExpandMore, Menu } from "@mui/icons-material"; // Import Home and Menu icons
+import {
+  Home,
+  MenuBook,
+  ExpandMore,
+  Menu as MenuIcon,
+  ChevronLeft,
+  ChevronRight,
+} from "@mui/icons-material"; // Import icons
 import { Link, useLocation } from "react-router-dom"; // Import useLocation
 import DrillCardList from "./DrillCardList"; // Import DrillCardList
 
 const drawerWidth = 240;
 
-const DashboardLayout = ({ children }) => {
-  const location = useLocation(); // Get the current location
-  const [mobileOpen, setMobileOpen] = useState(false);
+const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
+  ({ theme, open }) => ({
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    transition: theme.transitions.create("margin", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: `-${drawerWidth}px`,
+    ...(open && {
+      transition: theme.transitions.create("margin", {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+      marginLeft: 0,
+    }),
+  })
+);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+const AppBar = styled(MuiAppBar, {
+  shouldForwardProp: (prop) => prop !== "open",
+})(({ theme, open }) => ({
+  transition: theme.transitions.create(["margin", "width"], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  ...(open && {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: `${drawerWidth}px`,
+    transition: theme.transitions.create(["margin", "width"], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+}));
+
+const DrawerHeader = styled("div")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  padding: theme.spacing(0, 1),
+  ...theme.mixins.toolbar,
+  justifyContent: "flex-end",
+}));
+
+const DashboardLayout = ({ children }) => {
+  const theme = useTheme();
+  const location = useLocation(); // Get the current location
+  const [open, setOpen] = React.useState(false); // Set default state to false
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
   };
 
   const drawer = (
     <div>
-      <Toolbar />
+      <DrawerHeader>
+        <IconButton onClick={handleDrawerClose}>
+          {theme.direction === "ltr" ? <ChevronLeft /> : <ChevronRight />}
+        </IconButton>
+      </DrawerHeader>
+      <Divider />
       <List>
-        <ListItem button component={Link} to="/" onClick={handleDrawerToggle}>
+        <ListItem button component={Link} to="/" onClick={handleDrawerClose}>
           <ListItemIcon>
             <Home /> {/* Home icon */}
           </ListItemIcon>
@@ -42,20 +105,19 @@ const DashboardLayout = ({ children }) => {
           button
           component={Link}
           to="/german"
-          onClick={handleDrawerToggle}
+          onClick={handleDrawerClose}
         >
           <ListItemIcon>
             <MenuBook />
           </ListItemIcon>
           <ListItemText primary="German" />
         </ListItem>
-
         <ListItem
           button
           component={Link}
           to="/german/b2"
           sx={{ pl: 4 }}
-          onClick={handleDrawerToggle}
+          onClick={handleDrawerClose}
         >
           <ListItemIcon>
             <ExpandMore />
@@ -69,70 +131,40 @@ const DashboardLayout = ({ children }) => {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-        }}
-      >
+      <AppBar position="fixed" open={open}>
         <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
+            onClick={handleDrawerOpen}
             edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{ mr: 2, ...(open && { display: "none" }) }}
           >
-            <Menu />
+            <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
             Language Learning
           </Typography>
+          {/* <Button color="inherit">Login</Button> */}
         </Toolbar>
       </AppBar>
-
-      {/* Sidebar */}
-      <Box
-        component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="mailbox folders"
+      <Drawer
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          "& .MuiDrawer-paper": {
+            width: drawerWidth,
+            boxSizing: "border-box",
+          },
+        }}
+        variant="persistent"
+        anchor="left"
+        open={open}
       >
-        <Drawer
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-        <Drawer
-          variant="permanent"
-          sx={{
-            display: { xs: "none", sm: "block" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-          open
-        >
-          {drawer}
-        </Drawer>
-      </Box>
-
-      {/* Main content */}
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <Toolbar />
+        {drawer}
+      </Drawer>
+      <Main open={open}>
+        <DrawerHeader />
         {location.pathname === "/" ? (
           <>
             <Typography variant="h4">Welcome Home</Typography>
@@ -148,11 +180,11 @@ const DashboardLayout = ({ children }) => {
         ) : location.pathname === "/german" ? (
           <Typography variant="h4">We are on the German section</Typography> // Display text information in German component
         ) : location.pathname === "/german/b2" ? (
-          <DrillCardList drillcards={[]} /> 
+          <DrillCardList drillcards={[]} />
         ) : (
           children
         )}
-      </Box>
+      </Main>
     </Box>
   );
 };
