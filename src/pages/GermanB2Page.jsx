@@ -1,19 +1,18 @@
-import React from "react";
 import { Typography } from "@mui/material";
-import FlashCardList from "../components/FlashCardList";
+import DrillCardList from "../components/DrillCardList";
 
 const B2Page = () => {
-  const flashcards = [
+  const drillcards = [
     { id: 1, word: "Wort1", translation: "Translation1" },
     { id: 2, word: "Wort2", translation: "Translation2" },
-    // ...more flashcards
+    // ...more drill cards
   ];
 
   return (
     <div>
       <Typography variant="h4">Page B2 - Resources and Exercises</Typography>
-      <h2>German B2 Flashcards</h2>
-      <FlashCardList flashcards={flashcards} />
+      <h2>German B2 Drill Cards</h2>
+      <DrillCardList drillcards={drillcards} />
     </div>
   );
 };

@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent, Typography } from "@mui/material";
 
-export default function Flashcard({ word, switchAll }) {
+export default function DrillCard({ word, switchAll }) {
   const [flipped, setFlipped] = useState(switchAll);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
@@ -26,8 +26,7 @@ export default function Flashcard({ word, switchAll }) {
       style={{
         width: "250px",
         height: "160px",
-        backgroundColor: flipped ? "#E3F2FD" : "white", // Light blue if flipped
-        margin: "auto",
+        backgroundColor: flipped ? "#E3F2FD" : "white", // Bleu clair si flipped
       }}
     >
       <CardContent>
