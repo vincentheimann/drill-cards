@@ -77,6 +77,7 @@ const DashboardLayout = ({ children }) => {
   const theme = useTheme();
   const location = useLocation(); // Get the current location
   const [open, setOpen] = React.useState(false); // Set default state to false
+  const [hideAppBar, setHideAppBar] = React.useState(false); // State to track AppBar visibility
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -85,6 +86,25 @@ const DashboardLayout = ({ children }) => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  React.useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setHideAppBar(true);
+      } else {
+        setHideAppBar(false);
+      }
+      lastScrollY = window.scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const drawer = (
     <div>
@@ -131,7 +151,11 @@ const DashboardLayout = ({ children }) => {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar
+        position="fixed"
+        open={open}
+        sx={{ top: hideAppBar ? "-64px" : "0", transition: "top 0.3s" }}
+      >
         <Toolbar>
           <IconButton
             color="inherit"
