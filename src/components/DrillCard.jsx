@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent, Typography } from "@mui/material";
 
-export default function Flashcard({ word, switchAll }) {
+export default function DrillCard({ word, switchAll }) {
   const [flipped, setFlipped] = useState(switchAll);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 

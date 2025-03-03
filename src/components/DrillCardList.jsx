@@ -7,10 +7,10 @@ import {
   Switch,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import FlashCard from "./Card";
+import DrillCard from "./DrillCard";
 import { words } from "../data/words";
 
-export default function FlashcardList() {
+export default function DrillCardList() {
   const [switchAll, setSwitchAll] = useState(false);
   const handleChange = () => {
     setSwitchAll((prev) => !prev);
@@ -36,7 +36,7 @@ export default function FlashcardList() {
         </Grid>
         {words.map((word, index) => (
           <Grid size="auto" key={index}>
-            <FlashCard word={word} switchAll={switchAll} />
+            <DrillCard word={word} switchAll={switchAll} />
           </Grid>
         ))}
       </Grid>
