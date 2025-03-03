@@ -26,7 +26,8 @@ export default function Flashcard({ word, switchAll }) {
       style={{
         width: "250px",
         height: "160px",
-        backgroundColor: flipped ? "#E3F2FD" : "white", // Bleu clair si flipped
+        backgroundColor: flipped ? "#E3F2FD" : "white", // Light blue if flipped
+        margin: "auto",
       }}
     >
       <CardContent>
