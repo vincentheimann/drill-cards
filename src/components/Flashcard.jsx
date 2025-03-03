@@ -22,8 +22,7 @@ export default function Flashcard({ word, switchAll }) {
     <Card
       onMouseEnter={!isTouchDevice ? handleFlipped : undefined}
       onMouseLeave={!isTouchDevice ? handleFlipped : undefined}
-      onTouchStart={isTouchDevice ? handleFlipped : undefined}
-      onTouchEnd={(e) => e.preventDefault()}
+      onClick={isTouchDevice ? handleFlipped : undefined}
       style={{
         width: "250px",
         height: "160px",
