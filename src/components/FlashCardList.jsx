@@ -7,7 +7,7 @@ import {
   Switch,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import Flashcard from "./Flashcard";
+import Flashcard from "./FlashCard";
 import { words } from "../data/words";
 
 export default function FlashcardList() {

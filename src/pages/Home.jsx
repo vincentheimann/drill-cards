@@ -1,5 +1,5 @@
-import Grid from "@mui/material/Grid";
-import FlashcardList from "../components/FlashcardList";
+import Grid from "@mui/material/Grid2";
+import FlashcardList from "../components/FlashCardList";
 
 export default function Home() {
   return (

@@ -1,6 +1,5 @@
-import React from "react";
 import { Typography } from "@mui/material";
-import FlashCardList from "../components/FlashCardList";
+import FlashcardList from "../components/FlashCardList";
 
 const B2Page = () => {
   const flashcards = [
@@ -13,7 +12,7 @@ const B2Page = () => {
     <div>
       <Typography variant="h4">Page B2 - Resources and Exercises</Typography>
       <h2>German B2 Flashcards</h2>
-      <FlashCardList flashcards={flashcards} />
+      <FlashcardList flashcards={flashcards} />
     </div>
   );
 };

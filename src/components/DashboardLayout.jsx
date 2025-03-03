@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import { Home, MenuBook, ExpandMore, Menu } from "@mui/icons-material"; // Import Home and Menu icons
 import { Link, useLocation } from "react-router-dom"; // Import useLocation
-import FlashCardList from "./FlashCardList"; // Import FlashCardList
+import FlashcardList from "./FlashCardList"; // Import FlashcardList
 
 const drawerWidth = 240;
 
@@ -148,7 +148,7 @@ const DashboardLayout = ({ children }) => {
         ) : location.pathname === "/german" ? (
           <Typography variant="h4">We are on the German section</Typography> // Display text information in German component
         ) : location.pathname === "/german/b2" ? (
-          <FlashCardList flashcards={[]} /> // Render FlashCardList for B2 content
+          <FlashcardList flashcards={[]} /> // Render FlashcardList for B2 content
         ) : (
           children
         )}
