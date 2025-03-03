@@ -7,7 +7,7 @@ import {
   Switch,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import Flashcard from "./FlashCard";
+import FlashCard from "./FlashCard";
 import { words } from "../data/words";
 
 export default function FlashcardList() {
@@ -36,7 +36,7 @@ export default function FlashcardList() {
         </Grid>
         {words.map((word, index) => (
           <Grid size="auto" key={index}>
-            <Flashcard word={word} switchAll={switchAll} />
+            <FlashCard word={word} switchAll={switchAll} />
           </Grid>
         ))}
       </Grid>
