@@ -1,14 +1,18 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, Typography } from "@mui/material";
 
-export default function Flashcard({ word }) {
-  const [flipped, setFlipped] = useState(false);
+export default function Flashcard({ word, switchAll }) {
+  const [flipped, setFlipped] = useState(switchAll);
+
+  useEffect(() => {
+    setFlipped(switchAll);
+  }, [switchAll]);
 
   return (
     <Card
-      onMouseEnter={() => setFlipped(true)}
-      onMouseLeave={() => setFlipped(false)}
+      onMouseEnter={() => setFlipped((prev) => !prev)}
+      onMouseLeave={() => setFlipped((prev) => !prev)}
       style={{
         width: "250px",
         height: "160px",
