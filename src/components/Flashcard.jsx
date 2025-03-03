@@ -4,15 +4,26 @@ import { Card, CardContent, Typography } from "@mui/material";
 
 export default function Flashcard({ word, switchAll }) {
   const [flipped, setFlipped] = useState(switchAll);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
     setFlipped(switchAll);
   }, [switchAll]);
 
+  useEffect(() => {
+    setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0);
+  }, []);
+
+  const handleFlipped = () => {
+    setFlipped((prev) => !prev);
+  };
+
   return (
     <Card
-      onMouseEnter={() => setFlipped((prev) => !prev)}
-      onMouseLeave={() => setFlipped((prev) => !prev)}
+      onMouseEnter={!isTouchDevice ? handleFlipped : undefined}
+      onMouseLeave={!isTouchDevice ? handleFlipped : undefined}
+      onTouchStart={isTouchDevice ? handleFlipped : undefined}
+      onTouchEnd={(e) => e.preventDefault()}
       style={{
         width: "250px",
         height: "160px",
