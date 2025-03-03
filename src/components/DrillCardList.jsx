@@ -17,7 +17,7 @@ export default function DrillCardList() {
   };
   return (
     <Box>
-      <Grid container spacing={6}>
+      <Grid container spacing={4}>
         <Grid size={12}>
           <FormControl component="fieldset" variant="standard">
             <FormGroup>
