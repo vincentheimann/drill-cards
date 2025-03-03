@@ -11,7 +11,7 @@ import Flashcard from "./Flashcard";
 import { words } from "../data/words";
 
 export default function FlashcardList() {
-  const [switchAll, setSwitchAll] = useState(true);
+  const [switchAll, setSwitchAll] = useState(false);
   const handleChange = () => {
     setSwitchAll((prev) => !prev);
   };
