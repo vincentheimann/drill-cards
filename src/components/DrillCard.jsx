@@ -5,10 +5,18 @@ import {
   CardContent,
   Typography,
   CardActions,
-  Button,
+  IconButton,
+  Tooltip,
 } from "@mui/material";
+import VerticalAlignTopOutlinedIcon from "@mui/icons-material/VerticalAlignTopOutlined";
+import VerticalAlignBottomOutlinedIcon from "@mui/icons-material/VerticalAlignBottomOutlined";
 
-export default function DrillCard({ word, switchAll, moveCardToEnd }) {
+export default function DrillCard({
+  word,
+  switchAll,
+  moveCardToEnd,
+  moveCardToTop,
+}) {
   const [flipped, setFlipped] = useState(switchAll);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
@@ -32,6 +40,9 @@ export default function DrillCard({ word, switchAll, moveCardToEnd }) {
       style={{
         width: "250px",
         height: "160px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
         backgroundColor: flipped ? "#E3F2FD" : "white", // Bleu clair si flipped
       }}
     >
@@ -56,10 +67,17 @@ export default function DrillCard({ word, switchAll, moveCardToEnd }) {
           </>
         )}
       </CardContent>
-      <CardActions>
-        <Button size="small" onClick={moveCardToEnd}>
-          Move to End
-        </Button>
+      <CardActions style={{ marginTop: "auto" }}>
+        <Tooltip title="Move to the Top">
+          <IconButton size="small" onClick={moveCardToTop}>
+            <VerticalAlignTopOutlinedIcon />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Move to the End">
+          <IconButton size="small" onClick={moveCardToEnd}>
+            <VerticalAlignBottomOutlinedIcon />
+          </IconButton>
+        </Tooltip>
       </CardActions>
     </Card>
   );

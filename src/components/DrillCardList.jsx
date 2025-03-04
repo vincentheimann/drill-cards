@@ -49,6 +49,15 @@ export default function DrillCardList() {
     });
   };
 
+  const moveCardToTop = (index) => {
+    setWords((prevWords) => {
+      const newWords = [...prevWords];
+      const [movedWord] = newWords.splice(index, 1);
+      newWords.unshift(movedWord);
+      return newWords;
+    });
+  };
+
   return (
     <Box>
       <Grid container spacing={4}>
@@ -74,6 +83,7 @@ export default function DrillCardList() {
               word={word}
               switchAll={switchAll}
               moveCardToEnd={() => moveCardToEnd(index)}
+              moveCardToTop={() => moveCardToTop(index)}
             />
           </Grid>
         ))}
