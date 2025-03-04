@@ -18,12 +18,23 @@ export default function DrillCardList() {
   const [words, setWords] = useState([]);
 
   useEffect(() => {
-    if (location.pathname === "/german/b2") {
-      setWords(germanWords);
-    } else if (location.pathname === "/english/c1") {
-      setWords(englishWords);
+    const savedWords = localStorage.getItem(location.pathname);
+    if (savedWords) {
+      setWords(JSON.parse(savedWords));
+    } else {
+      if (location.pathname === "/german/b2") {
+        setWords(germanWords);
+      } else if (location.pathname === "/english/c1") {
+        setWords(englishWords);
+      }
     }
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (words.length > 0) {
+      localStorage.setItem(location.pathname, JSON.stringify(words));
+    }
+  }, [words, location.pathname]);
 
   const handleChange = () => {
     setSwitchAll((prev) => !prev);
