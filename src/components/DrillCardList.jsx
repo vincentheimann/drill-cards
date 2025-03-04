@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import {
   Box,
@@ -15,16 +15,28 @@ import { words as englishWords } from "../data/englishC1";
 export default function DrillCardList() {
   const location = useLocation();
   const [switchAll, setSwitchAll] = useState(false);
+  const [words, setWords] = useState([]);
+
+  useEffect(() => {
+    if (location.pathname === "/german/b2") {
+      setWords(germanWords);
+    } else if (location.pathname === "/english/c1") {
+      setWords(englishWords);
+    }
+  }, [location.pathname]);
+
   const handleChange = () => {
     setSwitchAll((prev) => !prev);
   };
 
-  let words = [];
-  if (location.pathname === "/german/b2") {
-    words = germanWords;
-  } else if (location.pathname === "/english/c1") {
-    words = englishWords;
-  }
+  const moveCardToEnd = (index) => {
+    setWords((prevWords) => {
+      const newWords = [...prevWords];
+      const [movedWord] = newWords.splice(index, 1);
+      newWords.push(movedWord);
+      return newWords;
+    });
+  };
 
   return (
     <Box>
@@ -47,7 +59,11 @@ export default function DrillCardList() {
         </Grid>
         {words.map((word, index) => (
           <Grid size="auto" key={index}>
-            <DrillCard word={word} switchAll={switchAll} />
+            <DrillCard
+              word={word}
+              switchAll={switchAll}
+              moveCardToEnd={() => moveCardToEnd(index)}
+            />
           </Grid>
         ))}
       </Grid>

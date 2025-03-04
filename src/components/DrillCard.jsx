@@ -1,8 +1,14 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
-import { Card, CardContent, Typography } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  Typography,
+  CardActions,
+  Button,
+} from "@mui/material";
 
-export default function DrillCard({ word, switchAll }) {
+export default function DrillCard({ word, switchAll, moveCardToEnd }) {
   const [flipped, setFlipped] = useState(switchAll);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
@@ -50,6 +56,11 @@ export default function DrillCard({ word, switchAll }) {
           </>
         )}
       </CardContent>
+      <CardActions>
+        <Button size="small" onClick={moveCardToEnd}>
+          Move to End
+        </Button>
+      </CardActions>
     </Card>
   );
 }
