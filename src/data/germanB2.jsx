@@ -918,4 +918,289 @@ export const words = [
     translatedTitle: "indifférent",
     translatedSentence: "Il est totalement indifférent à ce sujet.",
   },
+  // Expressions et connecteurs logiques
+  {
+    title: "allerdings",
+    sentence: "Ich stimme dir zu, allerdings gibt es ein Problem.",
+    translatedTitle: "toutefois",
+    translatedSentence:
+      "Je suis d’accord avec toi, toutefois il y a un problème.",
+  },
+  {
+    title: "andererseits",
+    sentence:
+      "Einerseits ist das eine gute Idee, andererseits gibt es Risiken.",
+    translatedTitle: "d’un autre côté",
+    translatedSentence:
+      "D’un côté, c’est une bonne idée, d’un autre, il y a des risques.",
+  },
+  {
+    title: "auf der einen Seite … auf der anderen Seite",
+    sentence:
+      "Auf der einen Seite ist er freundlich, auf der anderen Seite kann er sehr streng sein.",
+    translatedTitle: "d’une part… d’autre part",
+    translatedSentence:
+      "D’une part, il est amical, d’autre part, il peut être très strict.",
+  },
+  {
+    title: "ausserdem",
+    sentence: "Ich habe keine Zeit, ausserdem bin ich müde.",
+    translatedTitle: "de plus",
+    translatedSentence: "Je n’ai pas le temps, de plus je suis fatigué.",
+  },
+  {
+    title: "aufgrund (+ Genitiv)",
+    sentence: "Aufgrund des schlechten Wetters wurde das Konzert abgesagt.",
+    translatedTitle: "en raison de",
+    translatedSentence: "En raison du mauvais temps, le concert a été annulé.",
+  },
+  {
+    title: "beispielsweise",
+    sentence:
+      "Es gibt viele Möglichkeiten, beispielsweise könnte man Online-Werbung nutzen.",
+    translatedTitle: "par exemple",
+    translatedSentence:
+      "Il y a beaucoup de possibilités, par exemple on pourrait utiliser la publicité en ligne.",
+  },
+  {
+    title: "dennoch",
+    sentence: "Es war schwierig, dennoch haben wir es geschafft.",
+    translatedTitle: "néanmoins",
+    translatedSentence: "C’était difficile, néanmoins nous avons réussi.",
+  },
+  {
+    title: "ebenfalls",
+    sentence: "Ich wünsche Ihnen viel Erfolg und ebenfalls eine schöne Reise.",
+    translatedTitle: "également",
+    translatedSentence:
+      "Je vous souhaite beaucoup de succès et également un bon voyage.",
+  },
+  {
+    title: "einerseits",
+    sentence: "Einerseits ist die Idee gut, andererseits ist sie teuer.",
+    translatedTitle: "d’un côté",
+    translatedSentence:
+      "D’un côté, l’idée est bonne, d’un autre, elle est coûteuse.",
+  },
+  {
+    title: "entweder … oder",
+    sentence: "Entweder du kommst pünktlich, oder du gehst gar nicht.",
+    translatedTitle: "soit … soit",
+    translatedSentence:
+      "Soit tu viens à l’heure, soit tu ne viens pas du tout.",
+  },
+  {
+    title: "folglich",
+    sentence: "Er hat nicht trainiert, folglich hat er das Rennen verloren.",
+    translatedTitle: "par conséquent",
+    translatedSentence:
+      "Il ne s’est pas entraîné, par conséquent il a perdu la course.",
+  },
+  {
+    title: "jedoch",
+    sentence: "Ich wollte mitkommen, jedoch hatte ich keine Zeit.",
+    translatedTitle: "cependant",
+    translatedSentence: "Je voulais venir, cependant je n’avais pas le temps.",
+  },
+  {
+    title: "infolgedessen",
+    sentence: "Der Fehler wurde übersehen, infolgedessen gab es Probleme.",
+    translatedTitle: "en conséquence",
+    translatedSentence:
+      "L’erreur a été ignorée, en conséquence, il y a eu des problèmes.",
+  },
+  {
+    title: "keineswegs",
+    sentence: "Das war keineswegs meine Absicht.",
+    translatedTitle: "en aucun cas",
+    translatedSentence: "Ce n’était en aucun cas mon intention.",
+  },
+  {
+    title: "meiner Meinung nach",
+    sentence: "Meiner Meinung nach ist das eine schlechte Entscheidung.",
+    translatedTitle: "à mon avis",
+    translatedSentence: "À mon avis, c’est une mauvaise décision.",
+  },
+  {
+    title: "meines Erachtens",
+    sentence: "Meines Erachtens sollte man vorsichtiger sein.",
+    translatedTitle: "selon moi",
+    translatedSentence: "Selon moi, il faudrait être plus prudent.",
+  },
+  {
+    title: "nichtsdestotrotz",
+    sentence:
+      "Es gab viele Schwierigkeiten, nichtsdestotrotz haben wir unser Ziel erreicht.",
+    translatedTitle: "malgré tout",
+    translatedSentence:
+      "Il y a eu beaucoup de difficultés, malgré tout nous avons atteint notre objectif.",
+  },
+  {
+    title: "obwohl",
+    sentence: "Obwohl es regnete, gingen wir spazieren.",
+    translatedTitle: "bien que",
+    translatedSentence: "Bien qu’il pleuve, nous sommes allés nous promener.",
+  },
+  {
+    title: "stattdessen",
+    sentence: "Ich wollte ins Kino, stattdessen blieb ich zu Hause.",
+    translatedTitle: "au lieu de cela",
+    translatedSentence:
+      "Je voulais aller au cinéma, au lieu de cela je suis resté à la maison.",
+  },
+  {
+    title: "sowohl … als auch",
+    sentence: "Er ist sowohl intelligent als auch fleissig.",
+    translatedTitle: "aussi bien … que",
+    translatedSentence: "Il est aussi bien intelligent que travailleur.",
+  },
+  {
+    title: "tatsächlich",
+    sentence: "Er hat tatsächlich das Examen bestanden!",
+    translatedTitle: "en réalité",
+    translatedSentence: "Il a en réalité réussi l’examen !",
+  },
+  {
+    title: "trotzdem",
+    sentence: "Es war kalt, trotzdem ging er schwimmen.",
+    translatedTitle: "malgré cela",
+    translatedSentence: "Il faisait froid, malgré cela il est allé nager.",
+  },
+  {
+    title: "währenddessen",
+    sentence: "Ich koche, währenddessen kannst du den Tisch decken.",
+    translatedTitle: "pendant ce temps",
+    translatedSentence: "Je cuisine, pendant ce temps tu peux mettre la table.",
+  },
+  {
+    title: "was … betrifft",
+    sentence: "Was die Kosten betrifft, müssen wir noch rechnen.",
+    translatedTitle: "en ce qui concerne",
+    translatedSentence:
+      "En ce qui concerne les coûts, nous devons encore faire les calculs.",
+  },
+  {
+    title: "zum Beispiel (z. B.)",
+    sentence: "Ich mag Obst, zum Beispiel Äpfel und Bananen.",
+    translatedTitle: "par exemple",
+    translatedSentence:
+      "J’aime les fruits, par exemple les pommes et les bananes.",
+  },
+  {
+    title: "zusätzlich",
+    sentence: "Zusätzlich zu seinem Job studiert er noch.",
+    translatedTitle: "en plus",
+    translatedSentence: "En plus de son travail, il fait encore des études.",
+  },
+  {
+    title: "in der Tat",
+    sentence: "Er hat hart gearbeitet, in der Tat hat er es verdient.",
+    translatedTitle: "en effet",
+    translatedSentence: "Il a travaillé dur, en effet il le mérite.",
+  },
+  {
+    title: "ohne Zweifel",
+    sentence: "Das ist ohne Zweifel die beste Lösung.",
+    translatedTitle: "sans doute",
+    translatedSentence: "C’est sans doute la meilleure solution.",
+  },
+  {
+    title: "im Vergleich zu",
+    sentence: "Im Vergleich zu gestern ist das Wetter heute besser.",
+    translatedTitle: "en comparaison avec",
+    translatedSentence:
+      "En comparaison avec hier, le temps est meilleur aujourd’hui.",
+  },
+  {
+    title: "es sei denn",
+    sentence: "Ich komme, es sei denn, ich bin krank.",
+    translatedTitle: "à moins que",
+    translatedSentence: "Je viendrai, à moins que je sois malade.",
+  },
+  {
+    title: "selbst wenn",
+    sentence: "Selbst wenn es regnet, gehen wir raus.",
+    translatedTitle: "même si",
+    translatedSentence: "Même s’il pleut, nous sortons.",
+  },
+  {
+    title: "abgesehen davon, dass",
+    sentence: "Abgesehen davon, dass es teuer ist, gefällt mir das Auto.",
+    translatedTitle: "mis à part le fait que",
+    translatedSentence:
+      "Mis à part le fait que c’est cher, j’aime bien la voiture.",
+  },
+  {
+    title: "insbesondere",
+    sentence: "Ich mag Kunst, insbesondere Malerei.",
+    translatedTitle: "en particulier",
+    translatedSentence: "J’aime l’art, en particulier la peinture.",
+  },
+  {
+    title: "auf lange Sicht",
+    sentence: "Auf lange Sicht ist das eine kluge Entscheidung.",
+    translatedTitle: "à long terme",
+    translatedSentence: "À long terme, c’est une décision intelligente.",
+  },
+  {
+    title: "inwiefern",
+    sentence: "Inwiefern beeinflusst das unser Leben?",
+    translatedTitle: "dans quelle mesure",
+    translatedSentence: "Dans quelle mesure cela influence-t-il notre vie ?",
+  },
+  {
+    title: "im Wesentlichen",
+    sentence: "Im Wesentlichen stimme ich dir zu.",
+    translatedTitle: "essentiellement",
+    translatedSentence: "Essentiellement, je suis d’accord avec toi.",
+  },
+  {
+    title: "tendenziell",
+    sentence: "Tendenziell ist das eine gute Entwicklung.",
+    translatedTitle: "de manière générale",
+    translatedSentence: "De manière générale, c’est une bonne évolution.",
+  },
+  {
+    title: "im Gegensatz zu",
+    sentence: "Im Gegensatz zu dir mag ich Mathe.",
+    translatedTitle: "contrairement à",
+    translatedSentence: "Contrairement à toi, j’aime les maths.",
+  },
+  {
+    title: "schliesslich",
+    sentence: "Schliesslich haben wir uns entschieden.",
+    translatedTitle: "finalement",
+    translatedSentence: "Finalement, nous avons pris une décision.",
+  },
+  {
+    title: "genau genommen",
+    sentence: "Genau genommen ist das nicht korrekt.",
+    translatedTitle: "à proprement parler",
+    translatedSentence: "À proprement parler, ce n’est pas correct.",
+  },
+  {
+    title: "ungeachtet dessen",
+    sentence: "Er war müde, ungeachtet dessen arbeitete er weiter.",
+    translatedTitle: "malgré cela",
+    translatedSentence:
+      "Il était fatigué, malgré cela il a continué à travailler.",
+  },
+  {
+    title: "nach wie vor",
+    sentence: "Das Problem besteht nach wie vor.",
+    translatedTitle: "toujours",
+    translatedSentence: "Le problème existe toujours.",
+  },
+  {
+    title: "wohl oder übel",
+    sentence: "Ich muss das wohl oder übel akzeptieren.",
+    translatedTitle: "bon gré mal gré",
+    translatedSentence: "Je dois l’accepter bon gré mal gré.",
+  },
+  {
+    title: "in Bezug auf",
+    sentence: "In Bezug auf deine Frage, ja, das ist möglich.",
+    translatedTitle: "en rapport avec",
+    translatedSentence: "En rapport avec ta question, oui, c’est possible.",
+  },
 ];
