@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import {
   Box,
   FormGroup,
@@ -8,13 +9,23 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import DrillCard from "./DrillCard";
-import { words } from "../data/words";
+import { words as germanWords } from "../data/germanB2";
+import { words as englishWords } from "../data/englishC1";
 
 export default function DrillCardList() {
+  const location = useLocation();
   const [switchAll, setSwitchAll] = useState(false);
   const handleChange = () => {
     setSwitchAll((prev) => !prev);
   };
+
+  let words = [];
+  if (location.pathname === "/german/b2") {
+    words = germanWords;
+  } else if (location.pathname === "/english/c1") {
+    words = englishWords;
+  }
+
   return (
     <Box>
       <Grid container spacing={4}>

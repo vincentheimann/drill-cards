@@ -11,6 +11,7 @@ import {
   CssBaseline,
   Toolbar,
   AppBar as MuiAppBar,
+  Stack,
   Typography,
   Button,
   IconButton,
@@ -144,6 +145,29 @@ const DashboardLayout = ({ children }) => {
           </ListItemIcon>
           <ListItemText primary="B2" />
         </ListItem>
+        <ListItem
+          button
+          component={Link}
+          to="/english"
+          onClick={handleDrawerClose}
+        >
+          <ListItemIcon>
+            <MenuBook />
+          </ListItemIcon>
+          <ListItemText primary="English" />
+        </ListItem>
+        <ListItem
+          button
+          component={Link}
+          to="/english/c1"
+          sx={{ pl: 4 }}
+          onClick={handleDrawerClose}
+        >
+          <ListItemIcon>
+            <ExpandMore />
+          </ListItemIcon>
+          <ListItemText primary="C1" />
+        </ListItem>
       </List>
     </div>
   );
@@ -191,19 +215,33 @@ const DashboardLayout = ({ children }) => {
         <DrawerHeader />
         {location.pathname === "/" ? (
           <>
-            <Typography variant="h4">Welcome Home</Typography>
-            <Button
-              variant="contained"
-              color="primary"
-              component={Link}
-              to="/german/b2"
-            >
-              Go to German B2 Page
-            </Button>
+            <Stack spacing={2}>
+              <Typography variant="h4">Welcome Home</Typography>
+              <Button
+                variant="contained"
+                color="primary"
+                component={Link}
+                to="/german/b2"
+              >
+                Go to German B2 Page
+              </Button>
+              <Button
+                variant="contained"
+                color="primary"
+                component={Link}
+                to="/english/c1"
+              >
+                Go to English C1 Page
+              </Button>
+            </Stack>
           </>
         ) : location.pathname === "/german" ? (
           <Typography variant="h4">We are on the German section</Typography> // Display text information in German component
         ) : location.pathname === "/german/b2" ? (
+          <DrillCardList drillcards={[]} />
+        ) : location.pathname === "/english" ? (
+          <Typography variant="h4">We are on the English section</Typography>
+        ) : location.pathname === "/english/c1" ? (
           <DrillCardList drillcards={[]} />
         ) : (
           children

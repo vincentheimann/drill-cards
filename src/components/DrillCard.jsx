@@ -33,7 +33,7 @@ export default function DrillCard({ word, switchAll }) {
         {flipped ? (
           <>
             <Typography variant="h6" component="div">
-              {word.fr}
+              {word.translatedTitle}
             </Typography>
             <Typography variant="caption" color="textSecondary" mt={1}>
               {word.translatedSentence}
@@ -42,7 +42,7 @@ export default function DrillCard({ word, switchAll }) {
         ) : (
           <>
             <Typography variant="h6" component="div">
-              {word.de}
+              {word.title}
             </Typography>
             <Typography variant="caption" color="textSecondary" mt={1}>
               {word.sentence}
