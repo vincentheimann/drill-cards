@@ -143,53 +143,31 @@ const DashboardLayout = ({ children, handleThemeChange, themeMode }) => {
       </DrawerHeader>
       <Divider />
       <List>
-        <ListItem button component={Link} to="/" onClick={handleDrawerClose}>
+        <ListItem button="true" component={Link} to="/" onClick={handleDrawerClose}>
           <ListItemIcon>
             <Home /> {/* Home icon */}
           </ListItemIcon>
           <ListItemText primary="Home" />
         </ListItem>
-        <ListItem
-          button
-          component={Link}
-          to="/german"
-          onClick={handleDrawerClose}
-        >
+        <ListItem button="true" component={Link} to="/german" onClick={handleDrawerClose}>
           <ListItemIcon>
             <MenuBook />
           </ListItemIcon>
           <ListItemText primary="German" />
         </ListItem>
-        <ListItem
-          button
-          component={Link}
-          to="/german/b2"
-          sx={{ pl: 4 }}
-          onClick={handleDrawerClose}
-        >
+        <ListItem button="true" component={Link} to="/german/b2" sx={{ pl: 4 }} onClick={handleDrawerClose}>
           <ListItemIcon>
             <ExpandMore />
           </ListItemIcon>
           <ListItemText primary="B2" />
         </ListItem>
-        <ListItem
-          button
-          component={Link}
-          to="/english"
-          onClick={handleDrawerClose}
-        >
+        <ListItem button="true" component={Link} to="/english" onClick={handleDrawerClose}>
           <ListItemIcon>
             <MenuBook />
           </ListItemIcon>
           <ListItemText primary="English" />
         </ListItem>
-        <ListItem
-          button
-          component={Link}
-          to="/english/c1"
-          sx={{ pl: 4 }}
-          onClick={handleDrawerClose}
-        >
+        <ListItem button="true" component={Link} to="/english/c1" sx={{ pl: 4 }} onClick={handleDrawerClose}>
           <ListItemIcon>
             <ExpandMore />
           </ListItemIcon>
