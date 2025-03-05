@@ -8,10 +8,12 @@ import {
   IconButton,
   Tooltip,
 } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import VerticalAlignTopOutlinedIcon from "@mui/icons-material/VerticalAlignTopOutlined";
 import VerticalAlignBottomOutlinedIcon from "@mui/icons-material/VerticalAlignBottomOutlined";
 
 export default function DrillCard({ word, switchAll, moveCardToEnd, moveCardToTop }) {
+  const theme = useTheme();
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [flipped, setFlipped] = useState(switchAll);
 
@@ -38,7 +40,12 @@ export default function DrillCard({ word, switchAll, moveCardToEnd, moveCardToTo
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        backgroundColor: flipped ? "#E3F2FD" : "white", // Bleu clair si flipped
+        backgroundColor: flipped 
+  ? theme.palette.mode === "dark" 
+    ? "#2A3947"  // Muted blue-gray in dark mode
+    : "#E3F2FD"  // Light blue in light mode
+  : theme.palette.background.paper, // Default card color
+
       }}
     >
       <CardContent>
