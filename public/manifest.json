@@ -17,5 +17,9 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "lang": "en",
+  "scope": "/",
+  "orientation": "portrait",
+  "display_override": ["standalone", "fullscreen"]
 }
