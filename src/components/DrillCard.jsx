@@ -11,22 +11,17 @@ import {
 import VerticalAlignTopOutlinedIcon from "@mui/icons-material/VerticalAlignTopOutlined";
 import VerticalAlignBottomOutlinedIcon from "@mui/icons-material/VerticalAlignBottomOutlined";
 
-export default function DrillCard({
-  word,
-  switchAll,
-  moveCardToEnd,
-  moveCardToTop,
-}) {
-  const [flipped, setFlipped] = useState(switchAll);
+export default function DrillCard({ word, switchAll, moveCardToEnd, moveCardToTop }) {
   const [isTouchDevice, setIsTouchDevice] = useState(false);
-
-  useEffect(() => {
-    setFlipped(switchAll);
-  }, [switchAll]);
+  const [flipped, setFlipped] = useState(switchAll);
 
   useEffect(() => {
     setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0);
   }, []);
+
+  useEffect(() => {
+    setFlipped(switchAll);
+  }, [switchAll]);
 
   const handleFlipped = () => {
     setFlipped((prev) => !prev);
