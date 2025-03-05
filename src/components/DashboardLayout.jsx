@@ -16,8 +16,8 @@ import {
   Button,
   IconButton,
   Divider,
-  Switch,
-  FormControlLabel,
+  Menu,
+  MenuItem,
 } from "@mui/material";
 import {
   Home,
@@ -26,6 +26,9 @@ import {
   Menu as MenuIcon,
   ChevronLeft,
   ChevronRight,
+  Brightness4,
+  Brightness7,
+  BrightnessAuto,
 } from "@mui/icons-material"; // Import icons
 import { Link, useLocation } from "react-router-dom"; // Import useLocation
 import DrillCardList from "./DrillCardList"; // Import DrillCardList
@@ -76,11 +79,12 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-const DashboardLayout = ({ children, handleThemeChange, darkMode }) => {
+const DashboardLayout = ({ children, handleThemeChange, themeMode }) => {
   const theme = useTheme();
   const location = useLocation(); // Get the current location
   const [open, setOpen] = React.useState(false); // Set default state to false
   const [hideAppBar, setHideAppBar] = React.useState(false); // State to track AppBar visibility
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -88,6 +92,27 @@ const DashboardLayout = ({ children, handleThemeChange, darkMode }) => {
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  const handleMenuClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = (mode) => {
+    setAnchorEl(null);
+    handleThemeChange(mode);
+  };
+
+  const getThemeIcon = () => {
+    switch (themeMode) {
+      case "light":
+        return <Brightness7 />;
+      case "dark":
+        return <Brightness4 />;
+      case "system":
+      default:
+        return <BrightnessAuto />;
+    }
   };
 
   React.useEffect(() => {
@@ -183,6 +208,7 @@ const DashboardLayout = ({ children, handleThemeChange, darkMode }) => {
         sx={{ top: hideAppBar ? "-64px" : "0", transition: "top 0.3s" }}
       >
         <Toolbar>
+          {/* ...existing code... */}
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -195,10 +221,28 @@ const DashboardLayout = ({ children, handleThemeChange, darkMode }) => {
           <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
             Language Learning
           </Typography>
-          <FormControlLabel
-            control={<Switch checked={darkMode} onChange={handleThemeChange} />}
-            label="Dark Mode"
-          />
+          <IconButton
+            color="inherit"
+            aria-label="theme switcher"
+            onClick={handleMenuClick}
+          >
+            {getThemeIcon()}
+          </IconButton>
+          <Menu
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={() => handleMenuClose(themeMode)}
+          >
+            <MenuItem onClick={() => handleMenuClose("light")}>
+              <Brightness7 /> Light Theme
+            </MenuItem>
+            <MenuItem onClick={() => handleMenuClose("dark")}>
+              <Brightness4 /> Dark Theme
+            </MenuItem>
+            <MenuItem onClick={() => handleMenuClose("system")}>
+              <BrightnessAuto /> System Theme
+            </MenuItem>
+          </Menu>
         </Toolbar>
       </AppBar>
       <Drawer
