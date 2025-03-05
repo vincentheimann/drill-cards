@@ -2,7 +2,7 @@
   "name": "Drill Cards",
   "short_name": "DrillCards",
   "start_url": ".",
-  "display": "standalone",
+  "display": "fullscreen",
   "background_color": "#ffffff",
   "theme_color": "#1976D2",
   "description": "A Web App for learning using drill cards.",
@@ -20,6 +20,6 @@
   ],
   "lang": "en",
   "scope": "/",
-  "orientation": "portrait",
-  "display_override": ["standalone", "fullscreen"]
+  "orientation": "any",
+  "display_override": ["fullscreen", "standalone"]
 }
