@@ -1,11 +1,11 @@
 {
   "name": "Drill Cards",
-  "short_name": "DrillCards",
+  "short_name": "Drill Cards",
   "start_url": ".",
   "display": "fullscreen",
   "background_color": "#ffffff",
   "theme_color": "#1976D2",
-  "description": "A Web App for learning using drill cards.",
+  "description": "Learning using Drill Cards.",
   "icons": [
     {
       "src": "icons/style_192dp_1976D2_FILL1_wght400_GRAD0_opsz48.png",
