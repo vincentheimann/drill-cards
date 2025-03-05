@@ -15,7 +15,7 @@ export default defineConfig({
         theme_color: "#1976D2",
         background_color: "#ffffff",
         display: "fullscreen",
-        start_url: ".",
+        start_url: "/?source=pwa",
         icons: [
           {
             src: "icons/style_192dp_1976D2_FILL1_wght400_GRAD0_opsz48.png",

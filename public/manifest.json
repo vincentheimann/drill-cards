@@ -1,7 +1,7 @@
 {
   "name": "Drill Cards",
   "short_name": "Drill Cards",
-  "start_url": ".",
+  "start_url": "/?source=pwa",
   "display": "fullscreen",
   "background_color": "#ffffff",
   "theme_color": "#1976D2",
