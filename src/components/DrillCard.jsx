@@ -1,18 +1,27 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
-import { Card, CardContent, Typography } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  Typography,
+  CardActions,
+  IconButton,
+  Tooltip,
+} from "@mui/material";
+import VerticalAlignTopOutlinedIcon from "@mui/icons-material/VerticalAlignTopOutlined";
+import VerticalAlignBottomOutlinedIcon from "@mui/icons-material/VerticalAlignBottomOutlined";
 
-export default function DrillCard({ word, switchAll }) {
-  const [flipped, setFlipped] = useState(switchAll);
+export default function DrillCard({ word, switchAll, moveCardToEnd, moveCardToTop }) {
   const [isTouchDevice, setIsTouchDevice] = useState(false);
-
-  useEffect(() => {
-    setFlipped(switchAll);
-  }, [switchAll]);
+  const [flipped, setFlipped] = useState(switchAll);
 
   useEffect(() => {
     setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0);
   }, []);
+
+  useEffect(() => {
+    setFlipped(switchAll);
+  }, [switchAll]);
 
   const handleFlipped = () => {
     setFlipped((prev) => !prev);
@@ -26,6 +35,9 @@ export default function DrillCard({ word, switchAll }) {
       style={{
         width: "250px",
         height: "160px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
         backgroundColor: flipped ? "#E3F2FD" : "white", // Bleu clair si flipped
       }}
     >
@@ -50,6 +62,18 @@ export default function DrillCard({ word, switchAll }) {
           </>
         )}
       </CardContent>
+      <CardActions style={{ marginTop: "auto" }}>
+        <Tooltip title="Move to the Top">
+          <IconButton size="small" onClick={moveCardToTop}>
+            <VerticalAlignTopOutlinedIcon />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Move to the End">
+          <IconButton size="small" onClick={moveCardToEnd}>
+            <VerticalAlignBottomOutlinedIcon />
+          </IconButton>
+        </Tooltip>
+      </CardActions>
     </Card>
   );
 }

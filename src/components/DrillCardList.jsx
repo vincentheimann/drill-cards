@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
 import {
   Box,
   FormGroup,
@@ -9,22 +8,14 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import DrillCard from "./DrillCard";
-import { words as germanWords } from "../data/germanB2";
-import { words as englishWords } from "../data/englishC1";
+import { useCards } from "../context/CardsContext";
 
 export default function DrillCardList() {
-  const location = useLocation();
   const [switchAll, setSwitchAll] = useState(false);
   const handleChange = () => {
     setSwitchAll((prev) => !prev);
   };
-
-  let words = [];
-  if (location.pathname === "/german/b2") {
-    words = germanWords;
-  } else if (location.pathname === "/english/c1") {
-    words = englishWords;
-  }
+  const { cards, moveCardToEnd, moveCardToTop } = useCards();
 
   return (
     <Box>
@@ -45,9 +36,14 @@ export default function DrillCardList() {
             </FormGroup>
           </FormControl>
         </Grid>
-        {words.map((word, index) => (
+        {cards.map((card, index) => (
           <Grid size="auto" key={index}>
-            <DrillCard word={word} switchAll={switchAll} />
+            <DrillCard
+              word={card}
+              switchAll={switchAll}
+              moveCardToEnd={() => moveCardToEnd(index)}
+              moveCardToTop={() => moveCardToTop(index)}
+            />
           </Grid>
         ))}
       </Grid>
