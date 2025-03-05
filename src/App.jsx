@@ -1,9 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useState } from "react";
-import {
-  ThemeProvider,
-  CssBaseline,
-} from "@mui/material";
+import { ThemeProvider, CssBaseline, useMediaQuery } from "@mui/material";
 import DrillCardList from "./components/DrillCardList";
 import DashboardLayout from "./components/DashboardLayout";
 import GermanPage from "./pages/GermanPage";
@@ -14,14 +11,28 @@ import { CardsProvider } from "./context/CardsContext";
 import { lightTheme, darkTheme } from "./theme";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const [themeMode, setThemeMode] = useState(
+    localStorage.getItem("themeMode") || "system"
+  );
 
-  const handleThemeChange = () => {
-    setDarkMode((prevMode) => !prevMode);
+  const handleThemeChange = (mode) => {
+    setThemeMode(mode);
+    localStorage.setItem("themeMode", mode);
   };
 
+  const getTheme = () => {
+    if (themeMode === "system") {
+      return prefersDarkMode ? darkTheme : lightTheme;
+    }
+    return themeMode === "dark" ? darkTheme : lightTheme;
+  };
+
+  const darkMode =
+    themeMode === "system" ? prefersDarkMode : themeMode === "dark";
+
   return (
-    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+    <ThemeProvider theme={getTheme()}>
       <CssBaseline />
       <Router>
         <CardsProvider>
@@ -32,6 +43,7 @@ function App() {
                 <DashboardLayout
                   handleThemeChange={handleThemeChange}
                   darkMode={darkMode}
+                  themeMode={themeMode}
                 />
               }
             >
