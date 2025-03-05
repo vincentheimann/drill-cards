@@ -42,6 +42,21 @@ const lightTheme = createTheme({
       subtitle: "#616161",
     },
   },
+//   typography: {
+//     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+//     h1: { color: "#212121" },
+//     h2: { color: "#212121" },
+//     h3: { color: "#424242" },
+//     h4: { color: "#424242" },
+//     h5: { color: "#616161" },
+//     h6: { color: "#757575" },
+//     subtitle1: { color: "#616161" },
+//     subtitle2: { color: "#757575" },
+    body1: { color: "#424242" },
+//     body2: { color: "#616161" },
+//     caption: { color: "#9E9E9E" },
+//     overline: { color: "#9E9E9E" },
+//   },
 });
 
 const darkTheme = createTheme({
@@ -89,6 +104,21 @@ const darkTheme = createTheme({
       subtitle: "#B0BEC5",
     },
   },
+//   typography: {
+//     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+//     h1: { color: "#FFFFFF" },
+//     h2: { color: "#FFFFFF" },
+//     h3: { color: "#E0E0E0" },
+//     h4: { color: "#E0E0E0" },
+//     h5: { color: "#B0BEC5" },
+//     h6: { color: "#B0BEC5" },
+//     subtitle1: { color: "#B0BEC5" },
+//     subtitle2: { color: "#B0BEC5" },
+    body1: { color: "#E0E0E0" },
+//     body2: { color: "#B0BEC5" },
+//     caption: { color: "#9E9E9E" },
+//     overline: { color: "#9E9E9E" },
+//   },
 });
 
 export { lightTheme, darkTheme };
