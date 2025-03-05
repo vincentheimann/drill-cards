@@ -16,6 +16,8 @@ import {
   Button,
   IconButton,
   Divider,
+  Switch,
+  FormControlLabel,
 } from "@mui/material";
 import {
   Home,
@@ -74,7 +76,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-const DashboardLayout = ({ children }) => {
+const DashboardLayout = ({ children, handleThemeChange, darkMode }) => {
   const theme = useTheme();
   const location = useLocation(); // Get the current location
   const [open, setOpen] = React.useState(false); // Set default state to false
@@ -193,7 +195,10 @@ const DashboardLayout = ({ children }) => {
           <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
             Language Learning
           </Typography>
-          {/* <Button color="inherit">Login</Button> */}
+          <FormControlLabel
+            control={<Switch checked={darkMode} onChange={handleThemeChange} />}
+            label="Dark Mode"
+          />
         </Toolbar>
       </AppBar>
       <Drawer
