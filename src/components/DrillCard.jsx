@@ -26,6 +26,9 @@ export default function DrillCard({ word, switchAll, moveCardToEnd, moveCardToTo
   }, [switchAll]);
 
   const handleFlipped = () => {
+    setTimeout(() => {
+      setFlipped((prev) => !prev);
+    }, 300);
     setFlipped((prev) => !prev);
   };
 
