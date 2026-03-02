@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PSPO I Quiz Trainer</title>
+  <meta name="description" content="Practice quiz for the Scrum Professional Scrum Product Owner (PSPO I) certification exam." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HOME SCREEN -->
+  <div id="screen-home" class="screen active">
+    <div class="home-hero">
+      <div class="logo-badge">PSPO I</div>
+      <h1>Scrum Product Owner<br/>Practice Quiz</h1>
+      <p class="subtitle">264 questions · Simulate the real PSPO I exam<br/>Powered by Scrum.org official content</p>
+
+      <div class="mode-cards">
+        <div class="mode-card" id="btn-practice" role="button" tabindex="0">
+          <div class="mode-icon">📚</div>
+          <h2>Practice Mode</h2>
+          <p>All 264 questions, randomized. Review each answer immediately after submitting.</p>
+          <span class="mode-tag">No time limit</span>
+        </div>
+        <div class="mode-card" id="btn-exam" role="button" tabindex="0">
+          <div class="mode-icon">⏱️</div>
+          <h2>Exam Mode</h2>
+          <p>80 random questions in 60 minutes. Simulates the real PSPO I exam experience.</p>
+          <span class="mode-tag">60 minutes</span>
+        </div>
+      </div>
+
+      <div class="stats-bar" id="stats-bar" style="display:none;">
+        <div class="stat"><span id="stat-done">0</span><label>Answered</label></div>
+        <div class="stat"><span id="stat-correct">0</span><label>Correct</label></div>
+        <div class="stat"><span id="stat-pct">0%</span><label>Score</label></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div id="screen-quiz" class="screen">
+    <header class="quiz-header">
+      <button class="btn-ghost" id="btn-quit">← Quit</button>
+      <div class="quiz-meta">
+        <span id="q-counter">Question 1 / 80</span>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      </div>
+      <div id="timer-box" class="timer" style="display:none;">⏱ <span id="timer-display">60:00</span></div>
+    </header>
+
+    <main class="quiz-main">
+      <div class="question-card" id="question-card">
+        <div class="q-type-badge" id="q-type-badge"></div>
+        <h2 class="question-text" id="question-text"></h2>
+        <div class="options-list" id="options-list"></div>
+        <div class="feedback-box" id="feedback-box" style="display:none;"></div>
+        <div class="action-row">
+          <button class="btn-primary" id="btn-submit" disabled>Submit Answer</button>
+          <button class="btn-secondary" id="btn-next" style="display:none;">Next Question →</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- RESULTS SCREEN -->
+  <div id="screen-results" class="screen">
+    <div class="results-wrap">
+      <div class="results-medal" id="results-medal"></div>
+      <h1 id="results-title"></h1>
+      <p id="results-subtitle"></p>
+
+      <div class="score-circle">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="54" class="score-track"/>
+          <circle cx="60" cy="60" r="54" class="score-arc" id="score-arc"/>
+        </svg>
+        <div class="score-inner">
+          <span class="score-pct" id="score-pct">0%</span>
+          <span class="score-label">Score</span>
+        </div>
+      </div>
+
+      <div class="result-stats">
+        <div class="rstat"><span id="r-correct">0</span><label>Correct</label></div>
+        <div class="rstat"><span id="r-wrong">0</span><label>Wrong</label></div>
+        <div class="rstat"><span id="r-total">0</span><label>Total</label></div>
+      </div>
+
+      <div id="pass-fail-banner"></div>
+
+      <div class="results-actions">
+        <button class="btn-primary" id="btn-restart-same">Retry Same Mode</button>
+        <button class="btn-secondary" id="btn-home">Back to Home</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
